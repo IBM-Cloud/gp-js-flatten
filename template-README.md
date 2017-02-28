@@ -4,6 +4,10 @@ Un/Flattener for jsonpath
 Experimental adjunct to the
 [Globalization Pipeline Node.js SDK](https://github.com/IBM-Bluemix/gp-js-client).
 
+[![Build Status](https://travis-ci.org/srl295/gp-js-flatten.svg?branch=master)](https://travis-ci.org/srl295/gp-js-flatten)
+[![Coverage Status](https://coveralls.io/repos/github/srl295/gp-js-flatten/badge.svg)](https://coveralls.io/github/srl295/gp-js-flatten)
+
+
 Usage
 ===
 

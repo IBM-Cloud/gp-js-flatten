@@ -25,6 +25,7 @@
   "homepage": "https://github.com/srl295/gp-js-flatten#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "coveralls": "^2.11.16",
     "github-markdown-css": "^2.4.1",
     "istanbul": "^0.4.5",
     "jsdoc-to-markdown": "^3.0.0",
