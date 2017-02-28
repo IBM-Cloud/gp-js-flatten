@@ -1,0 +1,7 @@
+{
+    "$.foo": "foo",
+    "$.bar": "bar",
+    "$.baz.quux": "true",
+    "$.baz.hey": "hi",
+    "$.baz[\"π\"]": "3.14159"
+}

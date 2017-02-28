@@ -1,0 +1,11 @@
+{
+    "foo": "foo",
+    "bar": "bar",
+    "baz": {
+        "quux": true,
+        "hey": "hi",
+        "π": 3.14159,
+        "ignored1": [],
+        "ignored2": {}
+    }
+}

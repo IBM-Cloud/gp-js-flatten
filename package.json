@@ -1,0 +1,38 @@
+{
+  "name": "gp-js-flatten",
+  "version": "1.0.0",
+  "description": "Un/Flattener for jsonpath",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "coverage": "nyc mocha && nyc report --reporter=lcov",
+    "mocha": "mocha --reporter dot",
+    "docs": "jsdoc2md lib/*.js --template template-README.md > README.md",
+    "html": "npm run docs ; node util/gen-html.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srl295/gp-js-flatten.git"
+  },
+  "keywords": [
+    "jsonpath"
+  ],
+  "author": "Steven R. Loomis <srloomis@us.ibm.com> (https://srl295.github.io)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/srl295/gp-js-flatten/issues"
+  },
+  "homepage": "https://github.com/srl295/gp-js-flatten#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "github-markdown-css": "^2.4.1",
+    "istanbul": "^0.4.5",
+    "jsdoc-to-markdown": "^3.0.0",
+    "marked": "^0.3.6",
+    "mocha": "^3.2.0",
+    "nyc": "^10.1.2"
+  },
+  "dependencies": {
+    "jsonpath": "^0.2.11"
+  }
+}
