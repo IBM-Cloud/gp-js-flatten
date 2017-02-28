@@ -1,0 +1,5 @@
+{
+    "$.key": "This bundle should be unchanged by both flatten and unflatten.",
+    "$.key2": "value2",
+    "$.key3": "value3"
+}

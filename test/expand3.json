@@ -1,0 +1,17 @@
+{
+    "buttons": {
+        "agħfas": "click the button"
+    },
+    "menus": {
+        "font size": {
+            "0": "tall", 
+            "1": "grande",
+            "2": "venti"
+        },
+        "decaf": "false",
+        "color": {
+            "red": "rojo",
+            "green": "verde"
+        }
+    }
+}
