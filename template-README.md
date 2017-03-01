@@ -67,6 +67,40 @@ gives
 }
 ```
 
+Using with the Globalization Pipeline
+===
+
+The flattener allows you to use more complicate JSON structures with the [Globalization Pipeline Node.js SDK](https://github.com/IBM-Bluemix/gp-js-client).
+
+For example, you can “flatten” a JSON object before uploading to the Globalization Pipeline.
+
+```js
+const flattener = require('g11n-pipeline-flatten')
+var gpClient = require('g11n-pipeline').getClient(…);
+gpClient.bundle('mybundle').uploadStrings({
+    languageId: 'en',
+    strings: flattener.flatten(require('./en.json'));
+}, …);
+```
+
+Conversely, you can then “expand” the results when downloading from it.
+
+```js
+const flattener = require('g11n-pipeline-flatten')
+var gpClient = require('g11n-pipeline').getClient(…);
+gpClient.bundle('mybundle').getStrings({
+    languageId: 'en',
+}, (err, result) => {
+    …
+    const expanded = flattener.expand(result.resourceStrings);
+    // “expanded” is now the nested structure
+});
+```
+
+
+
+
+
 API reference
 ===
 
