@@ -7,5 +7,6 @@ npm-debug.log
 /coverage
 /.vscode
 /.nyc_output
+/util
 
 /sample
