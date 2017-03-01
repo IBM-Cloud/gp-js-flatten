@@ -7,25 +7,22 @@ Experimental adjunct to the
 [![Build Status](https://travis-ci.org/srl295/gp-js-flatten.svg?branch=master)](https://travis-ci.org/srl295/gp-js-flatten)
 [![Coverage Status](https://coveralls.io/repos/github/srl295/gp-js-flatten/badge.svg)](https://coveralls.io/github/srl295/gp-js-flatten)
 
+Purpose
+=======
+
+The purpose of this utility is to flatten key/value pairs so that all keys and values are strings. Some types are ignored, such as empty right hand side values.
+
+Also simple keys and values are by default left alone, so `{key: "value"}=flatten({key:"value"})`.
+The `flattenAll: true` option will include these keys in the flattening.
 
 Usage
-===
+=====
 
 Given `input=`:
 
-```json
-{
-    "foo": "foo",
-    "bar": "bar",
-    "baz": {
-        "quux": true,
-        "hey": "hi",
-        "π": 3.14159,
-        "ignored1": [],
-        "ignored2": {}
-    }
-}
-```
+<code>
+{{rawinclude 'test/input1.json'}}
+</code>
 
 and
 
@@ -36,15 +33,9 @@ const flat = flatten.flatten(input);
 
 gives
 
-```json
-{
-    "$.foo": "foo",
-    "$.bar": "bar",
-    "$.baz.quux": "true",
-    "$.baz.hey": "hi",
-    "$.baz[\"π\"]": "3.14159"
-}
-```
+<code>
+{{rawinclude 'test/flatten1.json'}}
+</code>
 
 and then
 
@@ -55,17 +46,9 @@ const expand = flatten.expand(flat);
 gives
 
 
-```json
-{
-    "foo": "foo",
-    "bar": "bar",
-    "baz": {
-        "quux": "true",
-        "hey": "hi",
-        "π": "3.14159"
-    }
-}
-```
+<code>
+{{rawinclude 'test/expand1.json'}}
+</code>
 
 Using with the Globalization Pipeline
 ===

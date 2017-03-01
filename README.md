@@ -7,25 +7,33 @@ Experimental adjunct to the
 [![Build Status](https://travis-ci.org/srl295/gp-js-flatten.svg?branch=master)](https://travis-ci.org/srl295/gp-js-flatten)
 [![Coverage Status](https://coveralls.io/repos/github/srl295/gp-js-flatten/badge.svg)](https://coveralls.io/github/srl295/gp-js-flatten)
 
+Purpose
+=======
+
+The purpose of this utility is to flatten key/value pairs so that all keys and values are strings. Some types are ignored, such as empty right hand side values.
+
+Also simple keys and values are by default left alone, so `{key: "value"}=flatten({key:"value"})`.
+The `flattenAll: true` option will include these keys in the flattening.
 
 Usage
-===
+=====
 
 Given `input=`:
 
-```json
+<code>
 {
-    "foo": "foo",
-    "bar": "bar",
-    "baz": {
-        "quux": true,
-        "hey": "hi",
-        "π": 3.14159,
-        "ignored1": [],
-        "ignored2": {}
-    }
+    &quot;foo&quot;: &quot;foo&quot;,
+    &quot;bar&quot;: &quot;bar&quot;,
+    &quot;baz&quot;: {
+        &quot;quux&quot;: true,
+        &quot;hey&quot;: &quot;hi&quot;,
+        &quot;π&quot;: 3.14159,
+        &quot;ignored1&quot;: [],
+        &quot;ignored2&quot;: {}
+    },
+    &quot;list&quot;: [ &quot;a&quot;, &quot;b&quot;, &quot;c&quot; ]
 }
-```
+</code>
 
 and
 
@@ -36,15 +44,18 @@ const flat = flatten.flatten(input);
 
 gives
 
-```json
+<code>
 {
-    "$.foo": "foo",
-    "$.bar": "bar",
-    "$.baz.quux": "true",
-    "$.baz.hey": "hi",
-    "$.baz[\"π\"]": "3.14159"
+    &quot;foo&quot;: &quot;foo&quot;,
+    &quot;bar&quot;: &quot;bar&quot;,
+    &quot;$.baz.quux&quot;: &quot;true&quot;,
+    &quot;$.baz.hey&quot;: &quot;hi&quot;,
+    &quot;$.baz[\&quot;π\&quot;]&quot;: &quot;3.14159&quot;,
+    &quot;$.list[0]&quot;: &quot;a&quot;,
+    &quot;$.list[1]&quot;: &quot;b&quot;,
+    &quot;$.list[2]&quot;: &quot;c&quot;
 }
-```
+</code>
 
 and then
 
@@ -55,17 +66,22 @@ const expand = flatten.expand(flat);
 gives
 
 
-```json
+<code>
 {
-    "foo": "foo",
-    "bar": "bar",
-    "baz": {
-        "quux": "true",
-        "hey": "hi",
-        "π": "3.14159"
+    &quot;foo&quot;: &quot;foo&quot;,
+    &quot;bar&quot;: &quot;bar&quot;,
+    &quot;baz&quot;: {
+        &quot;quux&quot;: &quot;true&quot;,
+        &quot;hey&quot;: &quot;hi&quot;,
+        &quot;π&quot;: &quot;3.14159&quot;
+    },
+    &quot;list&quot;: {
+        &quot;0&quot;: &quot;a&quot;,
+        &quot;1&quot;: &quot;b&quot;,
+        &quot;2&quot;: &quot;c&quot;
     }
 }
-```
+</code>
 
 Using with the Globalization Pipeline
 ===
@@ -124,10 +140,11 @@ Flatten a deeply nested object into its jsonpath equivalent
 
 **Kind**: global function  
 
-| Param | Type | Description |
-| --- | --- | --- |
-| obj | <code>Object</code> | The input object |
-| [opts] | <code>Object</code> | Optional input parameters |
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| obj | <code>Object</code> |  | The input object |
+| [opts] | <code>Object</code> |  | Optional input parameters |
+| [opts.flattenAll] | <code>Boolean</code> | <code>false</code> | If true, flatten all values, even simple top level keys. |
 
 <a name="expand"></a>
 

@@ -39,6 +39,28 @@ describe('test of flatten()', function() {
         const output = flatten.flatten(input);
         expect(output).to.deep.equal(require('./flatten1.json'));
     });
+
+    it('flatten(input2.json) ≈ input2.json', function() {
+        const input  = require('./input2.json');
+        const output = flatten.flatten(input);
+        expect(output).to.deep.equal(require('./input2.json'));
+    });
+    it('flatten(input1.json,{flattenAll:true}) ≈ flatten1x.json', function() {
+        const input  = require('./input1.json');
+        const output = flatten.flatten(input, {flattenAll: true});
+        expect(output).to.deep.equal(require('./flatten1x.json'));
+    });
+    it('flatten(input2.,{flattenAll:true}) ≈ flatten2x.json', function() {
+        const input  = require('./input2.json');
+        const output = flatten.flatten(input, {flattenAll: true});
+        expect(output).to.deep.equal(require('./flatten2x.json'));
+    });
+
+    it('flatten(input3.json) ≈ flatten3.json', function() {
+        const input  = require('./input3.json');
+        const output = flatten.flatten(input);
+        expect(output).to.deep.equal(require('./flatten3.json'));
+    });
 });
 
 describe('test of expand()', function() {
@@ -51,6 +73,24 @@ describe('test of expand()', function() {
         const input  = require('./flatten1.json');
         const output = flatten.expand(input);
         expect(output).to.deep.equal(require('./expand1.json'));
+    });
+
+    it('expand(input2.json) ≈ input2.json', function() {
+        const input  = require('./input2.json');
+        const output = flatten.expand(input);
+        expect(output).to.deep.equal(require('./input2.json'));
+    });
+
+    it('expand({"$.$.$":"abc"}) = {"$.$.$":"abc"}', function() {
+        const input = {"$.$.$":"abc"};
+        const output = flatten.expand(input);
+        expect(output).to.deep.equal(input);
+    });
+
+    it('expand(flatten3.json) ≈ expand3.json', function() {
+        const input  = require('./flatten3.json');
+        const output = flatten.expand(input);
+        expect(output).to.deep.equal(require('./expand3.json'));
     });
 });
 
