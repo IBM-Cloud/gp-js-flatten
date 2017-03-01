@@ -1,5 +1,5 @@
 {
-  "name": "gp-js-flatten",
+  "name": "g11n-pipeline-flatten",
   "version": "1.0.0",
   "description": "Un/Flattener for jsonpath",
   "main": "index.js",

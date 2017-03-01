@@ -4,6 +4,7 @@ Un/Flattener for jsonpath
 Experimental adjunct to the
 [Globalization Pipeline Node.js SDK](https://github.com/IBM-Bluemix/gp-js-client).
 
+[![npm version](https://badge.fury.io/js/g11n-pipeline-flatten.svg)](https://badge.fury.io/js/g11n-pipeline-flatten)
 [![Build Status](https://travis-ci.org/srl295/gp-js-flatten.svg?branch=master)](https://travis-ci.org/srl295/gp-js-flatten)
 [![Coverage Status](https://coveralls.io/repos/github/srl295/gp-js-flatten/badge.svg)](https://coveralls.io/github/srl295/gp-js-flatten)
 
@@ -27,7 +28,7 @@ Given `input=`:
 and
 
 ```js
-const flatten = require('gp-flatten');
+const flatten = require('g11n-pipeline-flatten');
 const flat = flatten.flatten(input);
 ```
 
