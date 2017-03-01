@@ -29,17 +29,22 @@ const targetFile = './sample/'+targetLang+'.json';
 
 console.log('Downloading ' + targetFile);
 
- gpClient
+function processStrings(resultExpanded) {
+    // for now, we just write the output to a JSON file
+    fs.writeFileSync(targetFile, JSON.stringify(resultExpanded));
+    console.log('Wrote:', targetFile);
+}
+
+gpClient
     .bundle(bundleName)
     .getStrings({
         languageId: targetLang,
     }, (err, result) => {
         if(err) return console.error(err);
-        const resultStrings = result.resourceStrings;
-        console.dir(resultStrings);
-        const resultExpanded = flatten.expand(resultStrings);
-        console.log('Expanded:');
-        console.dir(resultExpanded);
-        fs.writeFileSync(targetFile, JSON.stringify(resultExpanded));
-        console.log('Wrote:', targetFile);
+
+        // Expand the result
+        const resultExpanded = flatten.expand(result.resourceStrings);
+
+        // here is where we use the strings.
+        processStrings(resultExpanded);
     });
