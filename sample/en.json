@@ -1,0 +1,10 @@
+{
+    "greetings": {
+        "hello": "Hello there.",
+        "goodbye": "Good bye."
+    },
+    "errors": {
+        "printer": "The printer is on fire.",
+        "password": "Your password is wrong."
+    }
+}
