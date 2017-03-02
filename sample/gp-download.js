@@ -31,7 +31,7 @@ console.log('Downloading ' + targetFile);
 
 function processStrings(resultExpanded) {
     // for now, we just write the output to a JSON file
-    fs.writeFileSync(targetFile, JSON.stringify(resultExpanded));
+    fs.writeFileSync(targetFile, JSON.stringify(resultExpanded, null, 4) + '\n' );
     console.log('Wrote:', targetFile);
 }
 
