@@ -8,3 +8,11 @@ npm-debug.log
 /.vscode
 /.nyc_output
 /sample/es.json
+/sample/de.json
+/sample/fr.json
+/sample/it.json
+/sample/ja.json
+/sample/ko.json
+/sample/pt-BR.json
+/sample/zh-Hans.json
+/sample/zh-Hant.json
