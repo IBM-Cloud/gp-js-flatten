@@ -80,3 +80,5 @@ Note the translated file in Spanish, `./sample/es.json`
     }
 }
 ```
+
+There’s also a [`./sample/gp-downloadAll.js`](./gp-downloadAll.js) which will download all languages.
