@@ -1,5 +1,5 @@
-/*	
- * Copyright IBM Corp. 2015,2017
+/*
+ * Copyright IBM Corp. 2015,2018
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,12 +27,12 @@ const sourceFile = require('./en.json');
 
 console.log('Uploading ' + bundleName + ' source code');
 
- gpClient
-    .bundle(bundleName)
-    .uploadStrings({
-        languageId: 'en',
-        strings: flatten.flatten( sourceFile )
-    }, (err, data) => {
-        if(err) return console.error(err);
-        if(data) return console.dir(data);
-    });
+gpClient
+  .bundle(bundleName)
+  .uploadStrings({
+    languageId: 'en',
+    strings: flatten.flatten( sourceFile )
+  }, (err, data) => {
+    if(err) return console.error(err);
+    if(data) return console.dir(data);
+  });

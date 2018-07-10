@@ -1,5 +1,5 @@
-/*	
- * Copyright IBM Corp. 2015,2017
+/*
+ * Copyright IBM Corp. 2015,2018
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,21 +14,25 @@
  * limitations under the License.
  */
 
-var marked = require('marked');
-var fs = require('fs');
+const marked = require('marked');
+const fs = require('fs');
 
-var header = '<!DOCTYPE html> <html><head><meta charset="UTF-8"><title>Un/Flattener for JSON</title>'+
+const header = '<!DOCTYPE html> <html><head><meta charset="UTF-8"><title>Un/Flattener for JSON</title>'+
     '<link rel="stylesheet" href="node_modules/github-markdown-css/github-markdown.css"></head><body style="padding: 1em;" class="markdown-body">\n';
-var footer = '</body>\n';
+const footer = '</body>\n';
 
-var ifn = 'README.md';
-var ofn = 'README.html';
+const ifn = 'README.md';
+const ofn = 'README.html';
 
-marked(fs.readFileSync(ifn,'utf-8').toString(), {}, function (err, content) {
+fs.readFile(ifn, 'utf-8', (err, data) => {
+  if(err) throw err;
+  marked(data.toString(), {}, function (err, content) {
     if(err) throw err;
     fs.writeFile(ofn,
-        header + content + footer, function(err) {
-            if(err) throw err;
-            console.log('Wrote ' + ofn);
-        });
+      header + content + footer, function(err) {
+        if(err) throw err;
+        console.log('Wrote ' + ofn);
+      });
+  });
 });
+

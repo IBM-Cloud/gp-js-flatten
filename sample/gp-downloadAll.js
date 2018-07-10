@@ -1,5 +1,5 @@
-/*	
- * Copyright IBM Corp. 2015,2017
+/*
+ * Copyright IBM Corp. 2015,2018
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-const flatten = require('../'); // this would be require('g11n-pipeline-flatten') via npm 
+const flatten = require('../'); // this would be require('g11n-pipeline-flatten') via npm
 const gp = require('g11n-pipeline');
 const fs = require('fs');
 
@@ -30,64 +30,64 @@ const bundleName = 'myapp';
 // prefix for JSON output
 const targetDir = './sample/';
 
-// this kicks off the fetch process 
+// this kicks off the fetch process
 gpClient
-    .bundle(bundleName) // create a Bundle object
-    .getInfo((err, bundle) => { // fetch detailed info (targ lang list)
-        if(err) return console.error(err);
-        processLanguages(bundle);
-    });
+  .bundle(bundleName) // create a Bundle object
+  .getInfo((err, bundle) => { // fetch detailed info (targ lang list)
+    if(err) return console.error(err);
+    processLanguages(bundle);
+  });
 
 /**
  * Given a bundle with info (getInfo), process it by downloading all lanugages
- * @param {Object} bundle 
+ * @param {Object} bundle
  */
 function processLanguages(bundle) {
-    const languages = bundle.targetLanguages; // only include target languages
+  const languages = bundle.targetLanguages; // only include target languages
 
-    // Comment out the above line and use the following to re-download English also
-    //const languages = bundle.languages(); // all - includes source (en)
+  // Comment out the above line and use the following to re-download English also
+  //const languages = bundle.languages(); // all - includes source (en)
 
-    console.log('Downloading all of:', languages, 'for bundle:', bundle.id);
+  console.log('Downloading all of:', languages, 'for bundle:', bundle.id);
 
-    // Do the Downloading
-    processNext(languages, bundle);
+  // Do the Downloading
+  processNext(languages, bundle);
 }
 
 /**
  * Recursive function that processes the entire list
- * @param {String[]} list 
- * @param {Object} bundle 
+ * @param {String[]} list
+ * @param {Object} bundle
  */
 function processNext(list, bundle) {
-    const lang = list.pop();
-    console.log('Downloading:', lang);
-    bundle.getStrings({languageId: lang}, (err, result) => {
-        if(err) return console.error(err); // stops on the first error.
+  const lang = list.pop();
+  console.log('Downloading:', lang);
+  bundle.getStrings({languageId: lang}, (err, result) => {
+    if(err) return console.error(err); // stops on the first error.
 
-        // Process expanded strings
-        processStrings(lang, flatten.expand(result.resourceStrings));
+    // Process expanded strings
+    processStrings(lang, flatten.expand(result.resourceStrings));
 
-        // Kick off the next 
-        if(list.length > 0) {
-            // recurse
-            processNext(list, bundle);
-        } else {
-            console.log('Done.');
-        }
-    });
+    // Kick off the next
+    if(list.length > 0) {
+      // recurse
+      processNext(list, bundle);
+    } else {
+      console.log('Done.');
+    }
+  });
 }
 
 
 /**
  * Process the strings from a single language
  * @param {String} lang - language id
- * @param {Object} resultExpanded - the reconstituted original object 
+ * @param {Object} resultExpanded - the reconstituted original object
  */
 function processStrings(lang, resultExpanded) {
-    const targetFile = targetDir + lang + '.json';
-    // for now, we just write the output to a JSON file
-    fs.writeFileSync(targetFile,
-         JSON.stringify(resultExpanded, null, 4) + '\n' );
-    console.log('Wrote:      ', targetFile);
+  const targetFile = targetDir + lang + '.json';
+  // for now, we just write the output to a JSON file
+  fs.writeFileSync(targetFile,
+    JSON.stringify(resultExpanded, null, 4) + '\n' );
+  console.log('Wrote:      ', targetFile);
 }

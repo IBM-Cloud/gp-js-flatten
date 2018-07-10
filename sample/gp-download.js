@@ -1,5 +1,5 @@
-/*	
- * Copyright IBM Corp. 2015,2017
+/*
+ * Copyright IBM Corp. 2015,2018
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,21 +30,21 @@ const targetFile = './sample/'+targetLang+'.json';
 console.log('Downloading ' + targetFile);
 
 function processStrings(resultExpanded) {
-    // for now, we just write the output to a JSON file
-    fs.writeFileSync(targetFile, JSON.stringify(resultExpanded, null, 4) + '\n' );
-    console.log('Wrote:', targetFile);
+  // for now, we just write the output to a JSON file
+  fs.writeFileSync(targetFile, JSON.stringify(resultExpanded, null, 4) + '\n' );
+  console.log('Wrote:', targetFile);
 }
 
 gpClient
-    .bundle(bundleName)
-    .getStrings({
-        languageId: targetLang,
-    }, (err, result) => {
-        if(err) return console.error(err);
+  .bundle(bundleName)
+  .getStrings({
+    languageId: targetLang
+  }, (err, result) => {
+    if(err) return console.error(err);
 
-        // Expand the result
-        const resultExpanded = flatten.expand(result.resourceStrings);
+    // Expand the result
+    const resultExpanded = flatten.expand(result.resourceStrings);
 
-        // here is where we use the strings.
-        processStrings(resultExpanded);
-    });
+    // here is where we use the strings.
+    processStrings(resultExpanded);
+  });
