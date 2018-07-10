@@ -1,5 +1,5 @@
 /*
- * Copyright IBM Corp. 2015,2018
+ * Copyright IBM Corp. 2015-2018
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,4 +14,22 @@
  * limitations under the License.
  */
 
-module.exports = require('./lib/flatten.js');
+const mochaEslint = require('mocha-eslint');
+// run lint as part of tests
+
+const paths = [
+  'lib',
+  'test',
+  'util',
+  'bin'
+];
+
+const options = {
+  formatter: 'compact',
+  alwaysWarn: true,
+  // timeout: 5000,
+  strict: false
+};
+
+// run the linter
+mochaEslint(paths, options);
