@@ -1,9 +1,9 @@
 {
-    "$.buttons[\"agħfas\"]": "click the button",
+    "$.buttons['agħfas']": "click the button",
     "$.menus.color.green": "verde",
     "$.menus.color.red": "rojo",
     "$.menus.decaf": "false",
-    "$.menus[\"font size\"][0]": "tall",
-    "$.menus[\"font size\"][1]": "grande",
-    "$.menus[\"font size\"][2]": "venti"
+    "$.menus['font size'][0]": "tall",
+    "$.menus['font size'][1]": "grande",
+    "$.menus['font size'][2]": "venti"
 }
