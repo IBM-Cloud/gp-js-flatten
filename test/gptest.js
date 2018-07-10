@@ -30,43 +30,41 @@ describe('test of g11n-pipeline integration', function() {
   it('should setup the gp client',
     () => { gpClient = gp.getClient(gpCreds)})
   it('should ping the gp server (sanity)',
-    (done) => gpClient.ping(done));
+    () => gpClient.ping());
   it('should be able to create a bundle',
-    (done) => gpClient
+    () => gpClient
       .bundle('mytest')
       .create({
         sourceLanguage: 'en',
         targetLanguages: ['qru']
-      }, done));
+      }));
   it('should be able to upload flattened data',
-    (done) => gpClient
+    () => gpClient
       .bundle('mytest')
       .uploadStrings({
         languageId: 'en',
         strings: flatten.flatten(require('./input1.json'))
-      }, done));
+      }));
   it('should be able to fetch flattened data',
-    (done) => gpClient
+    () => gpClient
       .bundle('mytest')
       .getStrings({
         languageId: 'en'
-      }, (err, result) => {
-        if(err) return done(err);
+      })
+      .then((result) => {
         expect(result.resourceStrings).to.deep.equal(require('./flatten1.json'));
         expect(flatten.expand(result.resourceStrings)).to.deep.equal(require('./expand1.json'));
-        return done();
       }));
   it('should wait a sec for translation',
     (done) => setTimeout(done, 3000, null));
   it('should be able to fetch translated data',
-    (done) => gpClient
+    () => gpClient
       .bundle('mytest')
       .getStrings({
         languageId: 'qru'
-      }, (err, result) => {
-        if(err) return done(err);
+      })
+      .then((result) => {
         expect(result.resourceStrings).to.deep.equal(require('./flatten1r.json'));
         expect(flatten.expand(result.resourceStrings)).to.deep.equal(require('./expand1r.json'));
-        return done();
       }));
 });
