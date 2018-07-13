@@ -16,6 +16,11 @@ The purpose of this utility is to flatten key/value pairs so that all keys and v
 Also simple keys and values are by default left alone, so `{key: "value"}=flatten({key:"value"})`.
 The `flattenAll: true` option will include these keys in the flattening.
 
+News
+----
+
+In version 2.x, single quotes are used. This conforms with the Java client as well as jsonpath standards. See https://github.com/IBM-Cloud/gp-js-flatten/issues/18
+
 Usage
 -----
 
@@ -51,7 +56,7 @@ gives
     &quot;bar&quot;: &quot;bar&quot;,
     &quot;$.baz.quux&quot;: &quot;true&quot;,
     &quot;$.baz.hey&quot;: &quot;hi&quot;,
-    &quot;$.baz[\&quot;π\&quot;]&quot;: &quot;3.14159&quot;,
+    &quot;$.baz[&#x27;π&#x27;]&quot;: &quot;3.14159&quot;,
     &quot;$.list[0]&quot;: &quot;a&quot;,
     &quot;$.list[1]&quot;: &quot;b&quot;,
     &quot;$.list[2]&quot;: &quot;c&quot;
@@ -76,11 +81,7 @@ gives
         &quot;hey&quot;: &quot;hi&quot;,
         &quot;π&quot;: &quot;3.14159&quot;
     },
-    &quot;list&quot;: {
-        &quot;0&quot;: &quot;a&quot;,
-        &quot;1&quot;: &quot;b&quot;,
-        &quot;2&quot;: &quot;c&quot;
-    }
+    &quot;list&quot;: [ &quot;a&quot;, &quot;b&quot;, &quot;c&quot; ]
 }
 </code>
 

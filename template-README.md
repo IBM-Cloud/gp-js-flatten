@@ -16,6 +16,11 @@ The purpose of this utility is to flatten key/value pairs so that all keys and v
 Also simple keys and values are by default left alone, so `{key: "value"}=flatten({key:"value"})`.
 The `flattenAll: true` option will include these keys in the flattening.
 
+News
+----
+
+In version 2.x, single quotes are used. This conforms with the Java client as well as jsonpath standards. See https://github.com/IBM-Cloud/gp-js-flatten/issues/18
+
 Usage
 -----
 
