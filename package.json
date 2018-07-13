@@ -25,22 +25,22 @@
   "homepage": "https://github.com/srl295/gp-js-flatten#readme",
   "devDependencies": {
     "chai": "^3.5.0",
-    "coveralls": "^2.11.16",
+    "coveralls": "^3.0.2",
     "eslint": "^5.1.0",
     "eslint-plugin-chai-friendly": "^0.4.1",
-    "g11n-pipeline": "^1.3.0",
+    "g11n-pipeline": "^3.1.0",
     "github-markdown-css": "^2.4.1",
     "handlebars-helper-rawinclude": "^1.0.0",
     "istanbul": "^0.4.5",
     "jsdoc-to-markdown": "^3.0.0",
     "marked": "^0.3.6",
-    "mocha": "^3.2.0",
+    "mocha": "^5.2.0",
     "mocha-eslint": "^4.1.0",
-    "nyc": "^10.1.2",
+    "nyc": "^13.0.0",
     "optional": "^0.1.3",
     "promtie": "^0.5.0"
   },
   "dependencies": {
-    "jsonpath": "^0.2.11"
+    "@evxn/jsonpath": "^1.3.4"
   }
 }

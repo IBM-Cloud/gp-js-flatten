@@ -1,0 +1,62 @@
+{
+  "bears": {
+    "grizzly": {
+      "brown": "Brown Bear - XL",
+      "black": "Black Bear - XL"
+    },
+    "white": "Polar Bear - XL"
+  },
+  "countries": [
+    {
+      "Europe": [
+        "Germany - XL",
+        "Italy - XL",
+        "France - XL",
+        "Spain - XL"
+      ]
+    },
+    {
+      "Asia": [
+        "China - XL",
+        "Japan - XL",
+        "India - XL"
+      ]
+    },
+    {
+      "Americas": {
+        "S. America": [
+          "Brazil - XL",
+          "Venezuela - XL"
+        ],
+        "N. America": [
+          "United States [USA] - XL",
+          "Canada - XL",
+          "Mexico - XL"
+        ]
+      }
+    },
+    {
+      "Africa": [
+        "Egypt - XL",
+        "Somalia - XL",
+        "S. Africa - XL"
+      ]
+    }
+  ],
+  "colors": [
+    "red - XL",
+    "blue - XL",
+    "yellow - XL",
+    "orange - XL"
+  ],
+  "some_text": "Just a plain old string - XL",
+  "another.text": "Another plain old string - XL",
+  "frog['2']": "Red-eyed Tree Frog - XL",
+  "owl[3]": "Great Horned Owl - XL",
+  "$.xxx": "Looks like JSONPATH, but actually plain old string - XL",
+  "$.": "Looks like JSONPATH prefix, but actually plain old string - XL",
+  "$abc": "Starts with JSONPATH root char, but just a string - XL",
+  "ibm.com": {
+    "g11n.pipeline.title": "Globalization Pipeline - XL"
+  }
+}
