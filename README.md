@@ -1,8 +1,8 @@
 Un/Flattener for jsonpath
 =========================
 
-Experimental adjunct to the
-[Globalization Pipeline Node.js SDK](https://github.com/IBM-Bluemix/gp-js-client).
+Adjunct to the
+[Globalization Pipeline Node.js SDK](https://github.com/IBM-Cloud/gp-js-client).
 
 [![npm version](https://badge.fury.io/js/g11n-pipeline-flatten.svg)](https://badge.fury.io/js/g11n-pipeline-flatten)
 [![Build Status](https://travis-ci.org/srl295/gp-js-flatten.svg?branch=master)](https://travis-ci.org/srl295/gp-js-flatten)
@@ -88,7 +88,7 @@ gives
 Using with the Globalization Pipeline
 -------------------------------------
 
-The flattener allows you to use deeply nested JSON structures with the [Globalization Pipeline Node.js SDK](https://github.com/IBM-Bluemix/gp-js-client), which service otherwise only supports flat key/value pairs.
+The flattener allows you to use deeply nested JSON structures with the [Globalization Pipeline Node.js SDK](https://github.com/IBM-Cloud/gp-js-client), which service otherwise only supports flat key/value pairs. This is used in the [GP CLI](https://github.com/IBM-Cloud/gp-js-cli).
 
 See [./sample/SAMPLE-README.md](./sample/SAMPLE-README.md) for a full tutorial. The below gives a simple quickstart.
 
