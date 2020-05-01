@@ -2,9 +2,9 @@
     "foo": "foo",
     "bar": "bar",
     "baz": {
-        "quux": "true",
+        "quux": true,
         "hey": "hi",
-        "π": "3.14159"
+        "π": 3.14159
     },
     "list": [ "a", "b", "c" ]
 }

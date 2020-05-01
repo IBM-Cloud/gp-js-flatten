@@ -4,7 +4,7 @@
     },
     "menus": {
         "font size": [ "tall", "grande", "venti" ],
-        "decaf": "false",
+        "decaf": false,
         "color": {
             "red": "rojo",
             "green": "verde"

@@ -1,9 +1,9 @@
 {
     "$.foo": "foo",
     "$.bar": "bar",
-    "$.baz.quux": "true",
+    "$.baz.quux": true,
     "$.baz.hey": "hi",
-    "$.baz['π']": "3.14159",
+    "$.baz['π']": 3.14159,
     "$.list[0]": "a",
     "$.list[1]": "b",
     "$.list[2]": "c"
