@@ -33,7 +33,7 @@
     "handlebars-helper-rawinclude": "^1.0.0",
     "istanbul": "^0.4.5",
     "jsdoc-to-markdown": "^4.0.1",
-    "marked": "^0.6.2",
+    "marked": "^0.7.0",
     "mocha": "^5.2.0",
     "mocha-eslint": "^4.1.0",
     "nyc": "^14.0.0",
